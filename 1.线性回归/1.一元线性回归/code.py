@@ -17,15 +17,22 @@ def runplt():
     return plt
 
 
-x = [[0], [1], [3], [5], [6], [8], [10], [12]]
-y1 = [[5], [4], [3], [3], [2], [2], [1], [1]]
+# 训练样本
+x1 = [[0], [3], [6], [10]]
+y1 = [[5], [3], [2], [1]]
+
+# 测试样本
+x2 = [[1], [5], [8], [12]]
+y2 = [[4], [3], [2], [1]]
+
+x3 = [[0], [4], [8], [12], [16]]
 
 plt = runplt()
 model = LinearRegression()
-model.fit(x, y1)
-y2 = model.predict(x)
-score = model.score(x, y1)  # R方检验
-plt.plot(x, y1, 'k.')
-plt.plot(x, y2, 'r-')
+model.fit(x1, y1)
+y3 = model.predict(x3)
+score = model.score(x2, y2)  # R方检验
+plt.plot(x1, y1, 'k.')
+plt.plot(x3, y3, 'r-')
 plt.show()
 print(score)
